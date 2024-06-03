@@ -1,0 +1,21 @@
+.button {
+  border-radius: 5px;
+  height: 30px;
+  width: 200px;
+  border: none;
+  cursor: pointer;
+  background-color: #605a5a;
+}
+
+.button__active {
+  border-radius: 5px;
+  height: 30px;
+  width: 200px;
+  border: none;
+  cursor: pointer;
+  background-color: #0dbfe7;
+}
+
+.button__active:hover {
+  box-shadow: 0 14px 90px #0dbfe7;
+}

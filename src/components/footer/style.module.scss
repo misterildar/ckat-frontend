@@ -1,0 +1,23 @@
+.footer {
+  width: 100vw;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid #fff;
+  background-color: #001819bd;
+  box-shadow: 10px 10px 20px 20px rgba(0, 0, 0, 0.5);
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 10px;
+  gap: 1em;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}

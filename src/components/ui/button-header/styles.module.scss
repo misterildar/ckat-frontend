@@ -1,0 +1,14 @@
+.active {
+  color: #fff;
+  text-decoration: none;
+}
+
+.inactive {
+  color: #6b6b69;
+  text-decoration: none;
+}
+
+.inactive:hover {
+  text-decoration: underline;
+  color: #fff;
+}
