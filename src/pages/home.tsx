@@ -2,10 +2,17 @@ import { FC } from 'react';
 
 import { arraySvg } from '../utils/constants';
 import { Slider } from '../components/slider/slider';
+import useDevice from '../hooks/useDevice';
 
 import styles from './style.module.scss';
 
 export const Home: FC = () => {
+  const device = useDevice();
+
+  const isMobile = device === 'mobile';
+
+  const styleImage = isMobile ? styles.home__image_mobile : styles.home__image;
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.home}>
@@ -14,7 +21,7 @@ export const Home: FC = () => {
           <div className={styles.home__box}>
             {arraySvg.slice(0, 5).map((svg, index) => (
               <img
-                className={styles.home__image}
+                className={styleImage}
                 src={svg}
                 alt='photoImage'
                 key={index}
@@ -24,7 +31,7 @@ export const Home: FC = () => {
           <div className={styles.home__box}>
             {arraySvg.slice(5, 10).map((svg, index) => (
               <img
-                className={styles.home__image}
+                className={styleImage}
                 src={svg}
                 alt='photoImage'
                 key={index}
