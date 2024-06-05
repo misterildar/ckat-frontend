@@ -1,11 +1,10 @@
-import image1 from '../assets/images/image1.png';
-import image2 from '../assets/images/image2.png';
-import image3 from '../assets/images/image3.png';
-import image4 from '../assets/images/image4.png';
-import image5 from '../assets/images/image5.png';
-import image6 from '../assets/images/image6.png';
-import image7 from '../assets/images/image7.png';
-import image8 from '../assets/images/image8.png';
+import image1 from '../assets/images/Group 1.png';
+import image2 from '../assets/images/Group 2.png';
+import image3 from '../assets/images/Group 3.png';
+import image4 from '../assets/images/Group 4.png';
+import image5 from '../assets/images/Group 5.png';
+import image6 from '../assets/images/Group 6.png';
+import image7 from '../assets/images/Group 7.png';
 
 import svg1 from '../assets/icons/1.svg';
 import svg2 from '../assets/icons/2.svg';
@@ -54,7 +53,6 @@ export const arrayImages = [
   image5,
   image6,
   image7,
-  image8,
 ];
 
 export const arraySvg = [
@@ -68,15 +66,6 @@ export const arraySvg = [
   svg8,
   svg9,
   svg4,
-];
-
-export const arrHomeTitle = [
-  'Кабели и провода',
-  'Светотехника',
-  'Розетки и Выключатели',
-  'Щитовое оборудование',
-  'Ручной инструмент',
-  'Сопутствующие товары',
 ];
 
 export const aboutDescription =

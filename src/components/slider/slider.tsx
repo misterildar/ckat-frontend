@@ -4,7 +4,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/effect-fade';
 import { EffectFade } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import { Autoplay, Navigation } from 'swiper/modules';
 import 'swiper/css';
 
 import { arrayImages } from '../../utils/constants';
@@ -24,9 +24,8 @@ export const Slider: FC = () => {
         pagination={{
           clickable: true,
         }}
-        navigation={true}
         effect='fade'
-        modules={[EffectFade, Autoplay, Pagination, Navigation]}
+        modules={[EffectFade, Autoplay, Navigation]}
         className='mySwiper'
       >
         {arrayImages.map((el, index) => (

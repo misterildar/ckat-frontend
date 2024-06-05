@@ -13,6 +13,10 @@ export const Header: FC = () => {
 
   const isDesktop = device === 'desktop';
 
+  const isMobile = device === 'mobile';
+
+  const isDesktopOrTablet = device === 'desktop' || device === 'tablet';
+
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
@@ -21,12 +25,12 @@ export const Header: FC = () => {
           <h2 className={styles.title}> ТОВАРЫ ДЛЯ ЭЛЕТРОМОНТАЖА </h2>
         )}
         <nav className={styles.links}>
-          {!isDesktop && (
+          {isMobile && (
             <>
               <Hamburger link={routes.mobileMenu} />
             </>
           )}
-          {isDesktop && (
+          {isDesktopOrTablet && (
             <>
               <ButtonHeader title='ГЛАВНАЯ' link={routes.home} />
               <ButtonHeader title='КОНТАКТЫ' link={routes.contacts} />
