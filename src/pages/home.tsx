@@ -13,6 +13,8 @@ export const Home: FC = () => {
 
   const styleImage = isMobile ? styles.home__image_mobile : styles.home__image;
 
+  const styleHome = isMobile ? styles.home__mobile : styles.home;
+
   const styleGrid = isMobile ? styles.home__grid_mobile : styles.home__grid;
 
   const fontSize = isMobile ? (
@@ -29,7 +31,7 @@ export const Home: FC = () => {
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles.home}>
+      <div className={styleHome}>
         <Slider />
         <div className={styleGrid}>
           {arraySvg.map((svg, index) => (

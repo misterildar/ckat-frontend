@@ -17,7 +17,7 @@ export const Slider: FC = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setImages(arrayImages);
-    }, 1500);
+    }, 3000);
 
     return () => clearTimeout(timer);
   }, []);
