@@ -13,6 +13,8 @@ export const Home: FC = () => {
 
   const styleImage = isMobile ? styles.home__image_mobile : styles.home__image;
 
+  const styleHome = isMobile ? styles.home__mobile : styles.home;
+
   const fontSize = isMobile ? (
     <h4 className={styles.home__title_bottom}>
       {' '}
@@ -28,7 +30,7 @@ export const Home: FC = () => {
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles.home}>
+      <div className={styleHome}>
         <Slider />
         <div className={styles.home__vector}>
           <div className={styles.home__box}>

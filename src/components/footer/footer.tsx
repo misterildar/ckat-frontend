@@ -26,11 +26,11 @@ export const Footer: FC = () => {
   const contacts = (
     <>
       <div className={styles.title}>
-        <h3>магазин электротоваров СКАТ </h3>
+        <h3 className={styles.margin}>магазин электротоваров СКАТ </h3>
       </div>
       <div className={styles.title}>
-        <h4>ТЕЛЕФОН:</h4>
-        <h3> 40-66-33</h3>
+        <h4 className={styles.margin}>ТЕЛЕФОН:</h4>
+        <h3 className={styles.margin}> 40-66-33</h3>
       </div>
     </>
   );
