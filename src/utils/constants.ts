@@ -12,7 +12,6 @@ import svg3 from '../assets/icons/3.svg';
 import svg4 from '../assets/icons/4.svg';
 import svg5 from '../assets/icons/5.svg';
 import svg6 from '../assets/icons/6.svg';
-import svg7 from '../assets/icons/7.svg';
 import svg8 from '../assets/icons/8.svg';
 import svg9 from '../assets/icons/9.svg';
 import svg10 from '../assets/icons/10.svg';
@@ -55,19 +54,4 @@ export const arrayImages = [
   image7,
 ];
 
-export const arraySvg = [
-  svg10,
-  svg2,
-  svg3,
-  svg1,
-  svg5,
-  svg6,
-  svg7,
-  svg8,
-  svg9,
-  svg4,
-];
-
-
-
-
+export const arraySvg = [svg10, svg2, svg3, svg1, svg5, svg6, svg8, svg9, svg4];
