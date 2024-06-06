@@ -1,8 +1,8 @@
 import { FC } from 'react';
 
+import useDevice from '../hooks/useDevice';
 import { arraySvg } from '../utils/constants';
 import { Slider } from '../components/slider/slider';
-import useDevice from '../hooks/useDevice';
 
 import styles from './style.module.scss';
 
@@ -12,6 +12,19 @@ export const Home: FC = () => {
   const isMobile = device === 'mobile';
 
   const styleImage = isMobile ? styles.home__image_mobile : styles.home__image;
+
+  const fontSize = isMobile ? (
+    <h4 className={styles.home__title_bottom}>
+      {' '}
+      Работаем с&nbsp;2012&nbsp;года, в&nbsp;наличии необходимые товары для
+      электромонтажа и&nbsp;безопасности, а&nbsp;также многое другое.
+    </h4>
+  ) : (
+    <h2 className={styles.home__title_bottom}>
+      Работаем с&nbsp;2012&nbsp;года, в&nbsp;наличии необходимые товары для
+      электромонтажа и&nbsp;безопасности, а&nbsp;также многое другое.
+    </h2>
+  );
 
   return (
     <div className={styles.wrapper}>
@@ -39,12 +52,7 @@ export const Home: FC = () => {
             ))}
           </div>
         </div>
-        <div className={styles.home__bottom}>
-          <h2 className={styles.home__title_bottom}>
-            Работаем с 2012 года, в наличии необходимые товары для
-            электромонтажа и безопасности, а также многое другое.
-          </h2>
-        </div>
+        <div className={styles.home__bottom}>{fontSize}</div>
       </div>
     </div>
   );
