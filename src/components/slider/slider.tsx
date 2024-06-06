@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import 'swiper/css/effect-fade';
@@ -12,6 +12,16 @@ import { arrayImages } from '../../utils/constants';
 import styles from './style.module.scss';
 
 export const Slider: FC = () => {
+  const [images, setImages] = useState([arrayImages[0]]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setImages(arrayImages);
+    }, 1500);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div className={styles.container}>
       <Swiper
@@ -28,7 +38,7 @@ export const Slider: FC = () => {
         modules={[EffectFade, Autoplay, Navigation]}
         className='mySwiper'
       >
-        {arrayImages.map((el, index) => (
+        {images.map((el, index) => (
           <SwiperSlide key={index}>
             <img className={styles.image} src={el} alt='photoImage' />
           </SwiperSlide>
