@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { NavLink } from 'react-router-dom';
 
 import CKAT from '../../assets/icons/CKAT.png';
 import { routes } from '../../utils/constants';
@@ -20,7 +21,9 @@ export const Header: FC = () => {
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
-        <img className={styles.logo} src={CKAT} alt='CKAT' />
+        <NavLink to={routes.home}>
+          <img className={styles.logo} src={CKAT} alt='CKAT' />
+        </NavLink>
         {isDesktop && (
           <h2 className={styles.title}> ТОВАРЫ ДЛЯ ЭЛЕТРОМОНТАЖА </h2>
         )}
