@@ -1,3 +1,3 @@
 # React + TypeScript + Vite
 
-frontend для сайта СКАТ
+frontend для сайта СКАТ.
