@@ -7,7 +7,7 @@ import {
 } from '../services/store/userSlice';
 import { AppDispatch } from './types';
 
-const baseUrl: string = 'http://localhost:3000/';
+const baseUrl: string = 'https://ckat-backend.onrender.com/';
 
 const checkErrorPromise = (res: Response) => {
   return res.ok ? res.json() : res.json().then((err) => Promise.reject(err));
