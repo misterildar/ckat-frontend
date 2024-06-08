@@ -9,13 +9,9 @@ interface IProtected {
 }
 
 const Protected: FC<IProtected> = ({ onlyUnAuth = false, component }) => {
-  const { user, isAuthChecked } = useAuth();
+  const { user } = useAuth();
 
   const location = useLocation();
-
-  if (!isAuthChecked) {
-    return <h1>Подождите...</h1>;
-  }
 
   if (onlyUnAuth && user) {
     const { from } = location.state || {

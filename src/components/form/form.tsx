@@ -2,11 +2,12 @@ import { Link } from 'react-router-dom';
 import { FC, ReactNode, useEffect, useState } from 'react';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 
+import Spinner from '../ui/spiner/spiner';
 import { FormValues } from '../../utils/types';
 import { routes } from '../../utils/constants';
 import { useAuth } from '../../hooks/use-auth';
 import { LoginFormProps } from '../../utils/types';
-import Spinner from '../ui/spiner/spiner';
+import useDevice from '../../hooks/useDevice';
 
 import styles from './style.module.scss';
 
@@ -21,6 +22,12 @@ const Form: FC<LoginFormProps> = ({
   isRegister = false,
 }) => {
   const { isFailed, isRequest } = useAuth();
+
+  const device = useDevice();
+
+  const isMobile = device === 'mobile';
+
+  const inputStyle = isMobile ? styles.label__mobile : styles.label;
 
   const dataButton = isRequest ? <Spinner /> : titleBottom;
 
@@ -77,8 +84,8 @@ const Form: FC<LoginFormProps> = ({
   const emailInput = isEmail && (
     <>
       <label>
-        <div className={styles.label}>
-          {valueLogin && <h3>Email:&nbsp;&nbsp;</h3>}
+        <div className={inputStyle}>
+          {valueLogin && <h3 className={styles.text}>Email:&nbsp;&nbsp;</h3>}
           <input
             type='text'
             value={formValues.email}
@@ -135,8 +142,10 @@ const Form: FC<LoginFormProps> = ({
         <>
           <h2 className={styles.title}>{title}</h2>
           <label>
-            <div className={styles.label}>
-              {valueLogin && <h3>Login:&nbsp;&nbsp;</h3>}
+            <div className={inputStyle}>
+              {valueLogin && (
+                <h3 className={styles.text}>Login:&nbsp;&nbsp;</h3>
+              )}
               <input
                 type='text'
                 value={formValues.username}
@@ -161,8 +170,8 @@ const Form: FC<LoginFormProps> = ({
           <div style={{ height: 40 }}>{usernameInput}</div>
           {emailInput}
           <label>
-            <div className={styles.label}>
-              {valueLogin && <h3>Пароль:</h3>}
+            <div className={inputStyle}>
+              {valueLogin && <h3 className={styles.text}>Пароль:</h3>}
               <input
                 type='text'
                 placeholder='Пароль'

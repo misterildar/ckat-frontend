@@ -4,6 +4,7 @@
   align-items: center;
   color: #fff;
   padding: 4vw 6vw;
+  max-width: 90vw;
   border-radius: 20px;
   background-color: #001819bd;
   box-shadow: 0 44px 90px #000;
@@ -62,4 +63,11 @@
   display: flex;
   align-items: center;
   gap: 1em;
+
+  &__mobile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+  }
 }
