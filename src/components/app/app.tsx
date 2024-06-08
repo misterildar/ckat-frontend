@@ -15,7 +15,6 @@ import { routes } from '../../utils/constants';
 import { Contacts } from '../../pages/contacts';
 import MobileMenu from '../../pages/mobile-menu';
 import { useAppDispatch } from '../../hooks/hooks';
-import ChangeProfileData from '../../pages/change-profile-data';
 import { OnlyAuth, OnlyUnAuth } from '../protected-route/protected-route';
 
 import styles from './style.module.scss';
@@ -37,7 +36,6 @@ const App: FC = () => {
           <Route path={routes.contacts} element={<Contacts />} />
           <Route path={routes.notFound} element={<NotFound />} />
           <Route path={routes.mobileMenu} element={<MobileMenu />} />
-
           <Route
             path={routes.register}
             element={<OnlyUnAuth component={<Register />} />}
@@ -46,14 +44,9 @@ const App: FC = () => {
             path={routes.login}
             element={<OnlyUnAuth component={<Login />} />}
           />
-
           <Route
             path={routes.profile}
             element={<OnlyAuth component={<Profile />} />}
-          />
-          <Route
-            path={routes.changeProfileData}
-            element={<OnlyAuth component={<ChangeProfileData />} />}
           />
         </Routes>
       </div>

@@ -1,11 +1,11 @@
 import { FC, useEffect, useState } from 'react';
+import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import 'swiper/css/effect-fade';
 import { EffectFade } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation } from 'swiper/modules';
-import 'swiper/css';
 
 import { arrayImages } from '../../utils/constants';
 

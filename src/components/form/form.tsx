@@ -3,11 +3,11 @@ import { FC, ReactNode, useEffect, useState } from 'react';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 
 import Spinner from '../ui/spiner/spiner';
+import useDevice from '../../hooks/useDevice';
 import { FormValues } from '../../utils/types';
 import { routes } from '../../utils/constants';
 import { useAuth } from '../../hooks/use-auth';
 import { LoginFormProps } from '../../utils/types';
-import useDevice from '../../hooks/useDevice';
 
 import styles from './style.module.scss';
 
@@ -21,15 +21,24 @@ const Form: FC<LoginFormProps> = ({
   isEmail = false,
   isRegister = false,
 }) => {
+  const device = useDevice();
+
   const { isFailed, isRequest } = useAuth();
 
-  const device = useDevice();
+  const {
+    reset,
+    register,
+    handleSubmit,
+    formState: { errors, isValid },
+  } = useForm({
+    mode: 'onBlur',
+  });
 
   const isMobile = device === 'mobile';
 
-  const inputStyle = isMobile ? styles.label__mobile : styles.label;
-
   const dataButton = isRequest ? <Spinner /> : titleBottom;
+
+  const inputStyle = isMobile ? styles.label__mobile : styles.label;
 
   const [formValues, setFormValues] = useState<FormValues>({
     username: '',
@@ -46,15 +55,6 @@ const Form: FC<LoginFormProps> = ({
       }));
     }
   }, [valueEmail, valueLogin]);
-
-  const {
-    reset,
-    register,
-    handleSubmit,
-    formState: { errors, isValid },
-  } = useForm({
-    mode: 'onBlur',
-  });
 
   const errorMessageText = isFailed &&
     typeof isFailed === 'object' &&

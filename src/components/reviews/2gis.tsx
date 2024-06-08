@@ -26,7 +26,7 @@ const Iframe2Gis: React.FC<IframeProps> = ({
         l.contentWindow.document.close();
       })("big_light_70000001006934973", "${btoa(
         `<head><script type="text/javascript">
-          window.__size__='${size}';
+          window.__size__='${size}'; 
           window.__theme__='${theme}';
           window.__branchId__='${branchId}';
           window.__orgId__='${orgId}';

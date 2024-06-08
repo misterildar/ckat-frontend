@@ -138,7 +138,6 @@ const userSlice = createSlice({
       .addCase(loginUser.fulfilled, (state, action) => {
         state.isRequest = false;
         state.isFailed = false;
-        // state.username = action.meta.arg.username;
         state.accessToken = action.payload.accessToken;
         state.refreshToken = action.payload.refreshToken;
         state.isAuthChecked = true;

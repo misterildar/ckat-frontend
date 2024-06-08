@@ -25,15 +25,9 @@ export const routes = {
   register: '/register',
   profile: '/profile',
   mobileMenu: '/mobile-menu',
-  changeProfileData: '/change-profile-data',
 };
 
-export const loadingRoutes = [
-  routes.login,
-  routes.register,
-  routes.profile,
-  routes.changeProfileData,
-];
+export const loadingRoutes = [routes.login, routes.register, routes.profile];
 
 export const MIN_DESKTOP_WIDTH = 1280;
 export const MAX_MOBILE_WIDTH = 768;

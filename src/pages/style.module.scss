@@ -165,3 +165,10 @@
     top: 0;
   }
 }
+
+.notFound {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 1em;
+}

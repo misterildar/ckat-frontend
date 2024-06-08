@@ -2,9 +2,9 @@ import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import Form from '../components/form/form';
+import { FormValues } from '../utils/types';
 import { routes } from '../utils/constants';
 import { useAppDispatch } from '../hooks/hooks';
-import { FormValues } from '../utils/types';
 import { registerUser } from '../services/store/userSlice';
 
 import styles from './style.module.scss';
