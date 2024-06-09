@@ -9,6 +9,10 @@ export const Contacts: FC = () => {
 
   const isMobile = device === 'mobile';
 
+  const mapStyle = isMobile
+    ? styles.contacts__map_mobile
+    : styles.contacts__map;
+
   const contactsStyle = isMobile
     ? styles.contacts__container_mobile
     : styles.contacts__container;
@@ -16,7 +20,7 @@ export const Contacts: FC = () => {
   return (
     <div className={styles.wrapper}>
       <div className={contactsStyle}>
-        <div className={styles.contacts__map}>
+        <div className={mapStyle}>
           <iframe
             src='https://yandex.ru/map-widget/v1/?ll=52.326549%2C54.896107&panorama%5Bdirection%5D=187.750473%2C-17.998250&panorama%5Bfull%5D=true&panorama%5Bpoint%5D=52.311426%2C54.893799&panorama%5Bspan%5D=119.613104%2C60.000000&z=14'
             width='100%'
@@ -25,7 +29,7 @@ export const Contacts: FC = () => {
             style={{ position: 'relative' }}
           ></iframe>
         </div>
-        <div className={styles.contacts__map}>
+        <div className={mapStyle}>
           <iframe
             width='100%'
             height='100%'
