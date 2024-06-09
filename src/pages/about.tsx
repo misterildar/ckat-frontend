@@ -10,7 +10,7 @@ export const About: FC = () => {
     <div>
       <div className={styles.about}>
         <h3 className={styles.about__title}>
-          Лучше всего о нас расскажут отзывы клиентов
+          Лучше всего о нас расскажут отзывы&nbsp;клиентов
         </h3>
         <h1 className={styles.about__title}>Отзывы о нас</h1>
         <div className={styles.about__container}>

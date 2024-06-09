@@ -66,6 +66,7 @@
   height: 95%;
 
   &__title {
+    text-align: center;
     margin: 0;
     color: #fff;
   }
@@ -100,8 +101,8 @@
   &__container_mobile {
     display: flex;
     flex-direction: column;
-    gap: 1em;
-    padding: 1em;
+    gap: 10vh;
+    padding: 10vh 0;
     height: 50vh;
     width: 90%;
   }
