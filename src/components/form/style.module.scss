@@ -4,11 +4,12 @@
   align-items: center;
   color: #fff;
   padding: 4vw 6vw;
-  max-width: 90vw;
+  max-width: 80vw;
   border-radius: 20px;
   background-color: #001819bd;
   box-shadow: 0 44px 90px #000;
   border: 1px solid rgb(0, 4, 2);
+  box-sizing: border-box;
 }
 
 .input {
@@ -70,4 +71,8 @@
     justify-content: center;
     gap: 5px;
   }
+}
+
+.error {
+  text-align: center;
 }

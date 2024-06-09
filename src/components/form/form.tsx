@@ -203,7 +203,7 @@ const Form: FC<LoginFormProps> = ({
           </button>
           {registerLink}
           {loginLink}
-          {errorMessage}
+          <p className={styles.error}>{errorMessage as ReactNode}</p>
         </>
       </form>
     </div>

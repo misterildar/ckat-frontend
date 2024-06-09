@@ -21,6 +21,14 @@
   align-items: center;
   gap: 12vh;
 
+  &__mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 16px;
+    gap: 20px;
+  }
+
   &__image {
     border-radius: 10px;
     width: 6vw;
@@ -28,7 +36,7 @@
 
   &__image_mobile {
     border-radius: 10px;
-    width: 12vw;
+    width: 15vw;
   }
 
   &__bottom {
@@ -134,7 +142,7 @@
   }
   &__button_mobile {
     position: absolute;
-    top: 0;
+    top: 10px;
   }
 }
 
