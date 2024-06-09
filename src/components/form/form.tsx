@@ -56,16 +56,26 @@ const Form: FC<LoginFormProps> = ({
     }
   }, [valueEmail, valueLogin]);
 
+  const onSubmit: SubmitHandler<FieldValues> = (data: FieldValues) => {
+    const loginFormData: FormValues = {
+      username: data.username ?? '',
+      email: data.email,
+      password: data.password,
+    };
+    getDataForm(loginFormData);
+    reset();
+  };
+
   const errorMessageText = isFailed &&
     typeof isFailed === 'object' &&
     'message' in isFailed && <p>{isFailed.message as ReactNode}</p>;
 
   const errorMessage =
-    errorMessageText !== 'Unauthorized' ? errorMessageText : '';
+    errorMessageText != 'Unauthorized' ? errorMessageText : '';
 
   const loginLink = isLogin && (
     <h3 className={styles.text__link}>
-      У вас уже есть аккаунт?{' '}
+      У вас уже есть аккаунт?
       <Link to={routes.login} className={styles.link}>
         Войти
       </Link>
@@ -123,16 +133,6 @@ const Form: FC<LoginFormProps> = ({
       {(errors?.username?.message as string) || 'Error'}
     </p>
   );
-
-  const onSubmit: SubmitHandler<FieldValues> = (data: FieldValues) => {
-    const loginFormData: FormValues = {
-      username: data.username ?? '',
-      email: data.email,
-      password: data.password,
-    };
-    getDataForm(loginFormData);
-    reset();
-  };
 
   const isDisabledButtom = isValid ? styles.button_active : styles.button;
 
