@@ -1,11 +1,10 @@
 import { FC } from 'react';
-import { NavLink } from 'react-router-dom';
 
-import CKAT from '../../assets/icons/CKAT.png';
+import { LogoLink } from './logo-link';
 import { routes } from '../../utils/constants';
 import useDevice from '../../hooks/useDevice';
 import Hamburger from '../ui/hamburger/hamburger';
-import { ButtonHeader } from '../../components/ui/button-header/buttonHeader';
+import { HeaderButtons } from './header-buttons';
 
 import styles from './style.module.scss';
 
@@ -18,29 +17,18 @@ export const Header: FC = () => {
 
   const isDesktopOrTablet = device === 'desktop' || device === 'tablet';
 
+  const headerTitle = (
+    <h2 className={styles.title}> ТОВАРЫ ДЛЯ ЭЛЕТРОМОНТАЖА </h2>
+  );
+
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
-        <NavLink to={routes.home}>
-          <img className={styles.logo} src={CKAT} alt='CKAT' />
-        </NavLink>
-        {isDesktop && (
-          <h2 className={styles.title}> ТОВАРЫ ДЛЯ ЭЛЕТРОМОНТАЖА </h2>
-        )}
+        <LogoLink />
+        {isDesktop && headerTitle}
         <nav className={styles.links}>
-          {isMobile && (
-            <>
-              <Hamburger link={routes.mobileMenu} />
-            </>
-          )}
-          {isDesktopOrTablet && (
-            <>
-              <ButtonHeader title='ГЛАВНАЯ' link={routes.home} />
-              <ButtonHeader title='КОНТАКТЫ' link={routes.contacts} />
-              <ButtonHeader title='О НАС' link={routes.about} />
-              <ButtonHeader title='ЛИЧНЫЙ КАБИНЕТ' link={routes.profile} />
-            </>
-          )}
+          {isMobile && <Hamburger link={routes.mobileMenu} />}
+          {isDesktopOrTablet && <HeaderButtons />}
         </nav>
       </div>
     </div>

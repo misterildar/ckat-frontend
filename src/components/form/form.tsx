@@ -1,11 +1,11 @@
-import { Link } from 'react-router-dom';
 import { FC, ReactNode, useEffect, useState } from 'react';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 
+import { LinksForm } from './links-form';
 import Spinner from '../ui/spiner/spiner';
+import ErrorMessage from './error-message';
 import useDevice from '../../hooks/useDevice';
 import { FormValues } from '../../utils/types';
-import { routes } from '../../utils/constants';
 import { useAuth } from '../../hooks/use-auth';
 import { LoginFormProps } from '../../utils/types';
 
@@ -21,8 +21,6 @@ const Form: FC<LoginFormProps> = ({
   isEmail = false,
   isRegister = false,
 }) => {
-  const device = useDevice();
-
   const { isFailed, isRequest } = useAuth();
 
   const {
@@ -33,6 +31,8 @@ const Form: FC<LoginFormProps> = ({
   } = useForm({
     mode: 'onBlur',
   });
+
+  const device = useDevice();
 
   const isMobile = device === 'mobile';
 
@@ -71,68 +71,7 @@ const Form: FC<LoginFormProps> = ({
     'message' in isFailed && <p>{isFailed.message as ReactNode}</p>;
 
   const errorMessage =
-    errorMessageText != 'Unauthorized' ? errorMessageText : '';
-
-  const loginLink = isLogin && (
-    <h3 className={styles.text__link}>
-      У вас уже есть аккаунт?
-      <Link to={routes.login} className={styles.link}>
-        Войти
-      </Link>
-    </h3>
-  );
-
-  const registerLink = isRegister && (
-    <h3 className={styles.text__link}>
-      Еще нет аккаунта?{' '}
-      <Link to={routes.register} className={styles.link}>
-        Зарегистрироваться
-      </Link>
-    </h3>
-  );
-
-  const emailInput = isEmail && (
-    <>
-      <label>
-        <div className={inputStyle}>
-          {valueLogin && <h3 className={styles.text}>Email:&nbsp;&nbsp;</h3>}
-          <input
-            type='text'
-            value={formValues.email}
-            placeholder='Почта'
-            className={styles.input}
-            {...register('email', {
-              required: 'Поле обязательно для заполнения',
-              pattern: {
-                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                message: 'Некорректный адрес электронной почты',
-              },
-            })}
-            onChange={(e) => {
-              setFormValues((prevValues) => ({
-                ...prevValues,
-                email: e.target.value,
-              }));
-            }}
-          />
-        </div>
-      </label>
-      <div style={{ height: 40 }}>
-        {errors.email && errors.email.type === 'required' && (
-          <p className={styles.text}>Заполните адрес электронной почты</p>
-        )}
-        {errors.email && errors.email.type === 'pattern' && (
-          <p className={styles.text}>{errors.email.message as ReactNode}</p>
-        )}
-      </div>
-    </>
-  );
-
-  const usernameInput = errors?.username && (
-    <p className={styles.text}>
-      {(errors?.username?.message as string) || 'Error'}
-    </p>
-  );
+    errorMessageText !== 'Unauthorized' ? errorMessageText : '';
 
   const isDisabledButtom = isValid ? styles.button_active : styles.button;
 
@@ -167,8 +106,39 @@ const Form: FC<LoginFormProps> = ({
               />
             </div>
           </label>
-          <div style={{ height: 40 }}>{usernameInput}</div>
-          {emailInput}
+          <ErrorMessage error={errors} type='username' />
+
+          {isEmail && (
+            <>
+              <label>
+                <div className={inputStyle}>
+                  {valueLogin && (
+                    <h3 className={styles.text}>Email:&nbsp;&nbsp;</h3>
+                  )}
+                  <input
+                    type='text'
+                    value={formValues.email}
+                    placeholder='Почта'
+                    className={styles.input}
+                    {...register('email', {
+                      required: 'Поле обязательно для заполнения',
+                      pattern: {
+                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                        message: 'Некорректный адрес электронной почты',
+                      },
+                    })}
+                    onChange={(e) => {
+                      setFormValues((prevValues) => ({
+                        ...prevValues,
+                        email: e.target.value,
+                      }));
+                    }}
+                  />
+                </div>
+              </label>
+              <ErrorMessage error={errors} type='email' />
+            </>
+          )}
           <label>
             <div className={inputStyle}>
               {valueLogin && <h3 className={styles.text}>Пароль:</h3>}
@@ -186,13 +156,8 @@ const Form: FC<LoginFormProps> = ({
               />
             </div>
           </label>
-          <div style={{ height: 40 }}>
-            {errors.password && (
-              <p className={styles.text}>
-                {(errors.password.message as string) || 'Error'}
-              </p>
-            )}
-          </div>
+          <ErrorMessage error={errors} type='password' />
+
           <button
             name='button'
             type='submit'
@@ -201,8 +166,7 @@ const Form: FC<LoginFormProps> = ({
           >
             {dataButton}
           </button>
-          {registerLink}
-          {loginLink}
+          <LinksForm isLogin={isLogin} isRegister={isRegister} />
           <p className={styles.error}>{errorMessage as ReactNode}</p>
         </>
       </form>
