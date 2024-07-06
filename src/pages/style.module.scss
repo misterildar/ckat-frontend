@@ -128,22 +128,12 @@
   }
 }
 
-.profile {
-  &__container {
-    display: flex;
-    justify-content: center;
-    padding-top: 50px;
-    gap: 2em;
-    position: relative;
-  }
-  &__button {
-    position: absolute;
-    right: 0;
-  }
-  &__button_mobile {
-    position: absolute;
-    top: 10px;
-  }
+.profile__container {
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+  gap: 2em;
+  position: relative;
 }
 
 .notFound {

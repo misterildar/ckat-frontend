@@ -1,6 +1,8 @@
 import { FC } from 'react';
 
 import useDevice from '../../hooks/useDevice';
+import { ContactDesctop } from './contact-desctop';
+import { ContactTabletMobile } from './contact-tablet-mobile';
 
 import styles from './style.module.scss';
 
@@ -9,33 +11,7 @@ export const Footer: FC = () => {
 
   const isDesktop = device === 'desktop';
 
-  const contactsDesktop = (
-    <>
-      <div className={styles.title}>
-        <h3>ЖДЕМ ВАС: </h3>
-        <h3>ул. Шевченко 7 магазин электротоваров СКАТ </h3>
-      </div>
-      <div className={styles.title}>
-        <h3>ОТВЕТИМ ПО ТЕЛЕФОНУ:</h3>
-        <h3> 8-952-036-93-85 </h3>
-        <h3> 40-66-33</h3>
-      </div>
-    </>
-  );
-
-  const contacts = (
-    <>
-      <div className={styles.title}>
-        <h3 className={styles.margin}>магазин электротоваров СКАТ </h3>
-      </div>
-      <div className={styles.title}>
-        <h4 className={styles.margin}>ТЕЛЕФОН:</h4>
-        <h3 className={styles.margin}> 40-66-33</h3>
-      </div>
-    </>
-  );
-
-  const footerText = isDesktop ? contactsDesktop : contacts;
+  const footerText = isDesktop ? <ContactDesctop /> : <ContactTabletMobile />;
 
   return (
     <div>

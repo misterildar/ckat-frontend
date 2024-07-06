@@ -80,3 +80,44 @@ export type TButtonHeader = {
   title: string | boolean;
   link: string;
 };
+
+export type LinksProps = {
+  isLogin: boolean;
+  isRegister: boolean;
+};
+
+export type TProfileForm = {
+  values: TUser;
+  changeUserData: (userData: FormValues) => void;
+};
+
+export type TProfileActionsProps = {
+  onLogout: () => void;
+};
+
+export type TInputFieldProps = {
+  isText: string | undefined;
+  text: string;
+  type: string;
+  value?: string | undefined;
+  placeholder: string;
+  register: any;
+  registerOptions: any;
+  isOnChange?: boolean;
+  onChange?: (value: string) => void;
+  inputName: string;
+};
+
+export type ErrorMessages = {
+  username: (errors: {
+    username: { type: string; message: string };
+  }) => React.ReactNode | undefined;
+  email: (errors: {
+    email: { type: string; message: string };
+  }) => React.ReactNode | undefined;
+  password: (errors: {
+    password: { type: string; message: string };
+  }) => React.ReactNode | undefined;
+}
+
+export type ErrorMessageType = 'username' | 'email' | 'password';
